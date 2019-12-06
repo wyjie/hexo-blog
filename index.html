@@ -86,8 +86,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://codepen.io/shucha/pen/BayNEVN" target="_blank" rel="noopener">效果预览</a></p>
-<p>###拖拽相关的事件</p>
-<table>
+<h3 id="拖拽相关的事件"><a href="#拖拽相关的事件" class="headerlink" title="拖拽相关的事件"></a>拖拽相关的事件</h3><table>
 <thead>
 <tr>
 <th align="left">Event</th>
@@ -137,13 +136,9 @@
 </tr>
 </tbody></table>
 <blockquote>
-<p>当从操作系统向浏览器中拖动文件时，不会触发 <code>dragstart</code> 和<code>dragend</code> 事件。</p>
-</blockquote>
-<blockquote>
-<p>使用 <code>e.target.files</code> 来获取普通上传的文件，使用 <code>e.dataTransfer.files</code>获取拖拽上传的文件。</p>
-</blockquote>
-<blockquote>
-<p>Event对象的preventDefault() 方法用来阻止事件的默认操作，例如当我们将文件拖拽到浏览器窗口中时，浏览器默认会在当前页打开这个文件。可以调用event.preventDefault();阻止它。还有<code>&lt;button type=&quot;submit&quot; /&gt;</code> 等。</p>
+<p>1: 当从操作系统向浏览器中拖动文件时，不会触发 <code>dragstart</code> 和<code>dragend</code> 事件。</p>
+<p>2: 使用 <code>e.target.files</code> 来获取普通上传的文件，使用 <code>e.dataTransfer.files</code>获取拖拽上传的文件。</p>
+<p>3: Event对象的preventDefault() 方法用来阻止事件的默认操作，例如当我们将文件拖拽到浏览器窗口中时，浏览器默认会在当前页打开这个文件。可以调用event.preventDefault();阻止它。还有<code>&lt;button type=&quot;submit&quot; /&gt;</code> 等。</p>
 </blockquote>
 <h3 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h3><p><code>FileReader</code> 对象运行js异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 <code>File</code>或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener"><code>Blob</code></a> 对象指定要读取的文件或数据。</p>
 <p>其中<code>File</code>对象可以是来自用户在一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input" target="_blank" rel="noopener"><code>Input</code></a>元素上选择文件后返回的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileList" target="_blank" rel="noopener"><code>FileList</code></a>对象,也可以来自拖放操作生成的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DataTransfer" target="_blank" rel="noopener"><code>DataTransfer</code></a>对象,还可以是来自在一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement" target="_blank" rel="noopener"><code>HTMLCanvasElement</code></a>上执行<code>mozGetAsFile()</code>方法后返回结果。</p>
@@ -155,15 +150,14 @@
 <p><code>FileReader.onloadend</code> 读取结束</p>
 <p><code>Filereader.onprogress</code> 读取<code>Bold</code>对象时触发, 可以用来做进度条</p>
 <blockquote>
-<p><code>File</code>继承自<code>Bold</code></p>
-<p>因为 <code>FileReader</code> 继承自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget" target="_blank" rel="noopener"><code>EventTarget</code></a>，所以所有这些事件也可以通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener"><code>addEventListener</code></a>方法使用。</p>
+<p><code>File</code>继承自<code>Bold</code>, 因为 <code>FileReader</code> 继承自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget" target="_blank" rel="noopener"><code>EventTarget</code></a>，所以所有这些事件也可以通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener"><code>addEventListener</code></a>方法使用。</p>
 </blockquote>
 <p>###本文参考文档: <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" rel="noopener">MDN web docs</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck3txzm9b0002686bgkhjb8sj" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck3tyeb6t0000a46bg1w7dl52" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li></ul>
@@ -207,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/01/flexbox%E5%B8%83%E5%B1%80/" data-id="ck3txzm940000686b7ose20wi" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/01/flexbox%E5%B8%83%E5%B1%80/" data-id="ck3tyeb720003a46bdklk7k4b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/01/hello-world/" data-id="ck3txzm990001686bdltibxn2" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/01/hello-world/" data-id="ck3tyeb6y0001a46b74jj0jw1" class="article-share-link">Share</a>
       
       
     </footer>
