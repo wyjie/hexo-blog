@@ -110,6 +110,8 @@
 <p>照例可以用  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/addEventListener" target="_blank" rel="noopener"><code>element.addEventListener()</code></a> 方法来监听这个事件：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">"transitionend"</span>, updateTransition, <span class="literal">true</span>);</span></pre></td></tr></table></figure>
 
+
+
 <h2 id="当属性值列表长度不一致时"><a href="#当属性值列表长度不一致时" class="headerlink" title="当属性值列表长度不一致时"></a>当属性值列表长度不一致时</h2><p>以 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a> 的值列表长度为标准，如果某个属性值列表长度短于它的，则重复其值以长度一致， 例如:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="attribute">transition-property</span>: opacity, left, top, height;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="attribute">transition-duration</span>: <span class="number">3s</span>, <span class="number">5s</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
@@ -122,17 +124,15 @@
 <p>将按下面这样处理:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">transition-property</span>: opacity, left;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">3s</span>, <span class="number">5s</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
-<p>###transform</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#96;translate( [])&#96; 变换函数通过 &#96;x&#96; 向量和 &#96;y&#96; 向量移动元素 (i.e. &#96;xnew &#x3D; xold + , ynew &#x3D; yold + &#96;). 如果 &#96;y&#96; 向量没有被提供，那么默认为 &#96;0&#96;</span></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">scale( [])&#96; 变换函数通过 &#96;x&#96; 和 &#96;y&#96;指定一个 **等比例放大缩小** 操作。如果 &#96;y&#96; 没有被提供，那么假定为等同于 &#96;x</span></pre></td></tr></table></figure>
-
+<p>###</p>
+<h2 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h2><p><code>translate()</code> 变换函数通过 <code>x</code> 向量和 <code>y</code> 向量移动元素 (i.e. <code>xnew = xold + , ynew = yold +</code>). 如果 <code>y</code> 向量没有被提供，那么默认为 <code>0</code> </p>
+<p><code>scale()</code> 变换函数通过 <code>x</code> 和 <code>y</code>指定一个 <strong>等比例放大缩小</strong> 操作。如果 <code>y</code> 没有被提供，那么假定为等同于 <code>x</code></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener">Transition 参考文档</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/transform" target="_blank" rel="noopener">Tranform 参考文档</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/07/CSS-Transition/" data-id="ck3vl2s0q0001j76b79ne5ycm" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/07/CSS-Transition/" data-id="ck3vl6p5g0001lk6beh740otg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-transform-transition/" rel="tag">css, transform, transition</a></li></ul>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck3vl2s0l0000j76bf2xy07xx" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck3vl6p5b0000lk6bdt4vd20j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li></ul>
