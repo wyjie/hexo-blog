@@ -5,16 +5,20 @@
   
 
   
-  <title>Tag: 文件拖拽 | Shucha</title>
+  <title>firefox的锚点与chrome的锚点表现不同 | Shucha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello, world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shucha">
-<meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;tags&#x2F;%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD&#x2F;">
+  <meta name="description" content="效果预览 如果页面的宽度高度足够的情况下，在火狐中点击一个锚元素(&amp;lt;a&amp;gt;) 页面会定位到目标元素的位置：  chrome  有时候我们不想让页面偏移，可以将锚元素的目标设置成一个隐藏的元素并且将它便宜到页面边缘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="firefox的锚点与chrome的锚点表现不同">
+<meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;2019&#x2F;12&#x2F;10&#x2F;firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C&#x2F;">
 <meta property="og:site_name" content="Shucha">
-<meta property="og:description" content="hello, world!">
+<meta property="og:description" content="效果预览 如果页面的宽度高度足够的情况下，在火狐中点击一个锚元素(&amp;lt;a&amp;gt;) 页面会定位到目标元素的位置：  chrome  有时候我们不想让页面偏移，可以将锚元素的目标设置成一个隐藏的元素并且将它便宜到页面边缘">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;blog-image-1255951271.cos.ap-beijing.myqcloud.com&#x2F;Dec-10-2019%2010-55-06.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;blog-image-1255951271.cos.ap-beijing.myqcloud.com&#x2F;Dec-10-2019%2010-52-07.gif">
+<meta property="og:updated_time" content="2019-12-10T03:04:32.363Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;blog-image-1255951271.cos.ap-beijing.myqcloud.com&#x2F;Dec-10-2019%2010-55-06.gif">
   
     <link rel="alternate" href="/atom.xml" title="Shucha" type="application/atom+xml">
   
@@ -61,40 +65,57 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  <time datetime="2019-12-06T09:10:24.000Z" itemprop="datePublished">12月 6</time>
+        <section id="main"><article id="post-firefox的锚点与chrome的锚点表现不同" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" class="article-date">
+  <time datetime="2019-12-10T02:46:44.000Z" itemprop="datePublished">2019-12-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/">实现图片拖拽上传</a>
+    <h1 class="article-title" itemprop="name">
+      firefox的锚点与chrome的锚点表现不同
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://codepen.io/shucha/pen/MWYKLJo" target="_blank" rel="noopener">效果预览</a></p>
+<p>如果页面的宽度高度足够的情况下，在火狐中点击一个锚元素(<code>&lt;a&gt;</code>) 页面会定位到目标元素的位置：</p>
+<p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-55-06.gif" alt="alt 火狐"></p>
+<p>chrome</p>
+<p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-52-07.gif" alt="alt 火狐"></p>
+<p>有时候我们不想让页面偏移，可以将锚元素的目标设置成一个隐藏的元素并且将它便宜到页面边缘</p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ck3za7nrj0001j86b7gjg63ct" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/07/CSS-Transition/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Css Transition</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
