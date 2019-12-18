@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">[转载] 如何写出无法维护的代码</a>
+      <a class="article-title" href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
     </h1>
   
 
@@ -134,11 +134,11 @@
 <li><p><strong>#define</strong>。看过本站那些混乱代码的文章，你都会知道宏定义和预编译对于写出不可读的代码的重大意义。不过，一个具有想像力的东西是——在头文件中使用预编译来查看这个头文件被include了几次，而被include不同的次数时，其中的函数定义完全不一样。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#ifndef DONE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">#ifdef TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 3rd time around</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">void g(char* str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">#define DONE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">#else &#x2F;&#x2F; TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">#ifdef ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 2nd time around&lt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">void g(void* str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">#define TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">#else &#x2F;&#x2F; ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 1st time around</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">void g(std::string str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">#define ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; DONE</span></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 3rd time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">char</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 2nd time around&lt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">void</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 1st time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// DONE</span></span></span></pre></td></tr></table></figure>
 
 <h4 id="文档和注释"><a href="#文档和注释" class="headerlink" title="文档和注释"></a>文档和注释</h4><ul>
 <li><strong>在注释中撒谎</strong>。你不用真的去撒谎，只需在改代码的时候不要更新注释就可以了。</li>
-<li><strong>注释明显的东西</strong>。比如：/* add 1 to i */。（参看本站的“<a href="https://coolshell.cn/articles/2746.html" target="_blank" rel="noopener">五种应该避免的注释</a>”）</li>
+<li><strong>注释明显的东西</strong>。比如：/* add 1 to i */。（参看“<a href="https://coolshell.cn/articles/2746.html" target="_blank" rel="noopener">五种应该避免的注释</a>”）</li>
 <li><strong>只注释是什么，而不是为什么</strong>。</li>
 <li><strong>不要注释秘密</strong>。如果你开发一个航班系统，请你一定要保证每有一个新的航班被加入，就得要修改25个以上的位置的程序。千万别把这个事写在文档中。</li>
 <li><strong>注重细节</strong>。当你设计一个很复杂的算法的时候，你一定要把所有的详细细设计都写下来，没有100页不能罢休，段落要有5级以上，段落编号要有500个以上，例如：1.2.4.6.3.13 – Display all impacts for activity where selected mitigations can apply (short pseudocode omitted). 这样，当你写代码的时候，你就可以让你的代码和文档一致，如：Act1_2_4_6_3_13()</li>
@@ -206,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ck4b1q4sj00084x6bg6ea7dsk" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ck4b1vsep00097d6b2up88wj3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -262,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ck4b1q4sl00094x6bc9p812uv" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ck4b1vsej00037d6bccm85y52" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>
@@ -300,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/15/%E5%9C%A8React%E4%B8%AD%E4%BD%BF%E7%94%A8Immutable/" data-id="ck4b1q4sg00044x6b6oin8hfl" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/15/%E5%9C%A8React%E4%B8%AD%E4%BD%BF%E7%94%A8Immutable/" data-id="ck4b1vseq000b7d6bfelm7s78" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/15/%E7%AC%AC%E4%B8%80%E4%B8%AAJs%E6%B8%B8%E6%88%8F-%E8%AE%B0%E5%BF%86%E6%96%B9%E5%9D%97/" data-id="ck4b1q4si00054x6bf9m07rfm" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/15/%E7%AC%AC%E4%B8%80%E4%B8%AAJs%E6%B8%B8%E6%88%8F-%E8%AE%B0%E5%BF%86%E6%96%B9%E5%9D%97/" data-id="ck4b1vsem00057d6basdugre4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js%E5%8A%A8%E7%94%BB/" rel="tag">Js动画</a></li></ul>
@@ -374,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="ck4b1q4sb00014x6b8phf309a" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="ck4b1vsek00047d6bh1oz4zfo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ck4b1q4s700004x6bemxxgd8n" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ck4b1vseg00017d6b4zph0phs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" rel="tag">浏览器兼容</a></li></ul>
@@ -497,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/07/CSS-Transition/" data-id="ck4b1q4se00034x6b0oq370j5" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/07/CSS-Transition/" data-id="ck4b1vseb00007d6bhxel0dv2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transition/" rel="tag">transition</a></li></ul>
@@ -599,7 +599,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck4b1q4sm000b4x6bdbd60ctz" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ck4b1vseo00087d6beae20cj7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li></ul>
@@ -656,7 +656,7 @@
       <ul>
         
           <li>
-            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">[转载] 如何写出无法维护的代码</a>
+            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
           </li>
         
           <li>

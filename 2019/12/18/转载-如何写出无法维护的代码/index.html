@@ -5,16 +5,16 @@
   
 
   
-  <title>[转载] 如何写出无法维护的代码 | SHUCHA</title>
+  <title>转载 如何写出无法维护的代码 | SHUCHA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="原文链接: 酷壳-如何写出无法维护的代码 程序命名 容易输入的名字。比如：Fred，asdf 单字母的变量名。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….） 有创意地拼写错误。比如：SetPintleOpening， SetPintalClosing。这样可以让人很难搜索代码。 抽象。比如：ProcessData, DoIt, GetData… 抽象到就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[转载] 如何写出无法维护的代码">
+<meta property="og:title" content="转载 如何写出无法维护的代码">
 <meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;2019&#x2F;12&#x2F;18&#x2F;%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81&#x2F;">
 <meta property="og:site_name" content="SHUCHA">
 <meta property="og:description" content="原文链接: 酷壳-如何写出无法维护的代码 程序命名 容易输入的名字。比如：Fred，asdf 单字母的变量名。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….） 有创意地拼写错误。比如：SetPintleOpening， SetPintalClosing。这样可以让人很难搜索代码。 抽象。比如：ProcessData, DoIt, GetData… 抽象到就">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-18T08:40:27.965Z">
+<meta property="og:updated_time" content="2019-12-18T08:44:51.999Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="SHUCHA" type="application/atom+xml">
@@ -76,7 +76,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [转载] 如何写出无法维护的代码
+      转载 如何写出无法维护的代码
     </h1>
   
 
@@ -133,11 +133,11 @@
 <li><p><strong>#define</strong>。看过本站那些混乱代码的文章，你都会知道宏定义和预编译对于写出不可读的代码的重大意义。不过，一个具有想像力的东西是——在头文件中使用预编译来查看这个头文件被include了几次，而被include不同的次数时，其中的函数定义完全不一样。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#ifndef DONE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">#ifdef TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 3rd time around</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">void g(char* str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">#define DONE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">#else &#x2F;&#x2F; TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">#ifdef ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 2nd time around&lt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">void g(void* str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">#define TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">#else &#x2F;&#x2F; ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; put stuff here to declare 1st time around</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">void g(std::string str);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">#define ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; ONCE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; TWICE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">#endif &#x2F;&#x2F; DONE</span></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 3rd time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">char</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 2nd time around&lt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">void</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 1st time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// DONE</span></span></span></pre></td></tr></table></figure>
 
 <h4 id="文档和注释"><a href="#文档和注释" class="headerlink" title="文档和注释"></a>文档和注释</h4><ul>
 <li><strong>在注释中撒谎</strong>。你不用真的去撒谎，只需在改代码的时候不要更新注释就可以了。</li>
-<li><strong>注释明显的东西</strong>。比如：/* add 1 to i */。（参看本站的“<a href="https://coolshell.cn/articles/2746.html" target="_blank" rel="noopener">五种应该避免的注释</a>”）</li>
+<li><strong>注释明显的东西</strong>。比如：/* add 1 to i */。（参看“<a href="https://coolshell.cn/articles/2746.html" target="_blank" rel="noopener">五种应该避免的注释</a>”）</li>
 <li><strong>只注释是什么，而不是为什么</strong>。</li>
 <li><strong>不要注释秘密</strong>。如果你开发一个航班系统，请你一定要保证每有一个新的航班被加入，就得要修改25个以上的位置的程序。千万别把这个事写在文档中。</li>
 <li><strong>注重细节</strong>。当你设计一个很复杂的算法的时候，你一定要把所有的详细细设计都写下来，没有100页不能罢休，段落要有5级以上，段落编号要有500个以上，例如：1.2.4.6.3.13 – Display all impacts for activity where selected mitigations can apply (short pseudocode omitted). 这样，当你写代码的时候，你就可以让你的代码和文档一致，如：Act1_2_4_6_3_13()</li>
@@ -205,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ck4b1q4sj00084x6bg6ea7dsk" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ck4b1vsep00097d6b2up88wj3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,7 +268,7 @@
       <ul>
         
           <li>
-            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">[转载] 如何写出无法维护的代码</a>
+            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
           </li>
         
           <li>
