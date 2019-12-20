@@ -1076,7 +1076,7 @@ a.article-title:hover {
 }
 #footer {
   background: #262a30;
-  padding: 50px 0;
+  padding: 20px 0;
   border-top: 1px solid #ddd;
   color: #999;
 }
@@ -1090,6 +1090,17 @@ a.article-title:hover {
 #footer-info {
   line-height: 1.6em;
   font-size: 0.85em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 .article-entry pre,
 .article-entry .highlight {
