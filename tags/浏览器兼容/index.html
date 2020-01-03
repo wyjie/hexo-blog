@@ -64,13 +64,6 @@
 <script>
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-let colors = [
-	'#FFCE03',
-	'#EB7A0C',
-	'#FF5949',
-	'#DC38E8',
-	'#3A14FF'
-];
 const getRandomNumber = () => {
 	return Math.random() * 2 - 1;
 }
@@ -87,7 +80,7 @@ const getDistance = (x1, y1, x2, y2) => {
 
 const resize = () => {
 	canvas.width = window.innerWidth; 
-	canvas.height = 300; 
+	canvas.height = window.innerHeight; 
 }
 
 resize();
@@ -98,8 +91,7 @@ let position = {
 	y: null,
 	xSpeed: 0,
 	ySpeed: 0,
-	max: 20000,
-	color: randomColors(colors)
+	max: 20000
 };
 
 window.onmousemove = e => {
@@ -119,8 +111,7 @@ for (let i=0; i<200; i++) {
 		y: Math.random() * canvas.height,
 		xSpeed: getRandomNumber(),
 		ySpeed: getRandomNumber(),
-		max: 6000,
-		color: randomColors(colors)
+		max: 6000
 	});
 }
 
@@ -134,7 +125,6 @@ const animate = () => {
 		dot.xSpeed *= (dot.x >= canvas.width || dot.x <= 0) ? -1 : 1;
 		dot.ySpeed *= (dot.y >= canvas.height || dot.y <= 0) ? -1 : 1;
 		ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
-		const LineColor = randomColors(colors);
 		
 		for (let dot2 of balls) {
 			if (dot === dot2 || dot2.x === null || dot2.y === null) continue;
@@ -143,12 +133,12 @@ const animate = () => {
    		const yc = dot.y - dot2.y;
 			
 			if (dis <= dot2.max) {
-				if (dot2 === position && dis > (dot2.max / 2)) {
+				if (dot2 === position && position.x && dis > (dot2.max / 2)) {
 					dot.x -= xc * 0.03;
 					dot.y -= yc * 0.03;
 				 }
 				ctx.beginPath();
-        ctx.lineWidth = 0.1;
+				ctx.lineWidth = 0.2;
 				ctx.strokeStyle = 'rgba(255,255,255, 1)';
 				ctx.moveTo(dot.x, dot.y);
 				ctx.lineTo(dot2.x, dot2.y);
@@ -159,7 +149,6 @@ const animate = () => {
 }
 
 animate();
-
 </script>
       <div class="outer">
         <section id="main">
