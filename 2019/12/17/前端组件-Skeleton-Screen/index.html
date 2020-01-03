@@ -138,12 +138,12 @@ const animate = () => {
    		const yc = dot.y - dot2.y;
 			
 			if (dis <= dot2.max) {
-				if (dot2 === position && dis > (dot2.max / 2)) {
+				if (dot2 === position && position.x && dis > (dot2.max / 2)) {
 					dot.x -= xc * 0.03;
 					dot.y -= yc * 0.03;
 				 }
 				ctx.beginPath();
-				ctx.lineWidth = 0.2;
+				ctx.lineWidth = 0.1;
 				ctx.strokeStyle = 'rgba(255,255,255, 1)';
 				ctx.moveTo(dot.x, dot.y);
 				ctx.lineTo(dot2.x, dot2.y);
@@ -202,7 +202,7 @@ animate();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ck4xwhpol00062p6bg3qk6nn2" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ck4xwjopr00066b6bccg06yuq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>

@@ -134,12 +134,12 @@ const animate = () => {
    		const yc = dot.y - dot2.y;
 			
 			if (dis <= dot2.max) {
-				if (dot2 === position && dis > (dot2.max / 2)) {
+				if (dot2 === position && position.x && dis > (dot2.max / 2)) {
 					dot.x -= xc * 0.03;
 					dot.y -= yc * 0.03;
 				 }
 				ctx.beginPath();
-				ctx.lineWidth = 0.2;
+				ctx.lineWidth = 0.1;
 				ctx.strokeStyle = 'rgba(255,255,255, 1)';
 				ctx.moveTo(dot.x, dot.y);
 				ctx.lineTo(dot2.x, dot2.y);
@@ -178,7 +178,7 @@ animate();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yarn.run/categories/" data-id="ck4xwhpof00012p6bethbe7qi" class="article-share-link">Share</a>
+      <a data-url="http://yarn.run/categories/" data-id="ck4xwjopi00016b6belgv1k7t" class="article-share-link">Share</a>
       
       
     </footer>
