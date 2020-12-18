@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>它的名字是: Canvas Particle - SHUCHA</title>
+  <title>InnoDB记录存储结构 - SHUCHA</title>
   <meta charset="UTF-8">
   <meta name="description" content="hello, world!">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,19 +12,19 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="代码和效果预览 最初的想法:在canvas画出随机的点并计算点之间的距离连线 &amp;#39;use strict&amp;#39;  class Ball {     constructor(x, y, xSpeed, ySpeed) {         this.x &#x3D; x;         this.y &#x3D; y;         this.xSpeed &#x3D; xSpeed;         this.ySp">
-<meta name="keywords" content="canvas">
+  <meta name="description" content="InnoDB 行格式InnoDB设计了4种不同的行格式， 分别是Compact、Redundant、Dynamic和Compressed. 指定行格式的语法CREATE TABLE 表名 (列的信息) ROW_FORMAT&#x3D;行格式名称  ALTER TABLE 表名 ROW_FORMAT&#x3D;行格式名称 Compact在Compact格式的行中，一条完整的记录可以被分为记录的额外信息和记录的真实数据两">
+<meta name="keywords" content="Mysql, InndDB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="它的名字是: Canvas Particle">
-<meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;01&#x2F;10&#x2F;%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle&#x2F;">
+<meta property="og:title" content="InnoDB记录存储结构">
+<meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;12&#x2F;18&#x2F;InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84&#x2F;">
 <meta property="og:site_name" content="SHUCHA">
-<meta property="og:description" content="代码和效果预览 最初的想法:在canvas画出随机的点并计算点之间的距离连线 &amp;#39;use strict&amp;#39;  class Ball {     constructor(x, y, xSpeed, ySpeed) {         this.x &#x3D; x;         this.y &#x3D; y;         this.xSpeed &#x3D; xSpeed;         this.ySp">
+<meta property="og:description" content="InnoDB 行格式InnoDB设计了4种不同的行格式， 分别是Compact、Redundant、Dynamic和Compressed. 指定行格式的语法CREATE TABLE 表名 (列的信息) ROW_FORMAT&#x3D;行格式名称  ALTER TABLE 表名 ROW_FORMAT&#x3D;行格式名称 Compact在Compact格式的行中，一条完整的记录可以被分为记录的额外信息和记录的真实数据两">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-17T08:13:27.681Z">
+<meta property="og:updated_time" content="2020-12-18T07:07:03.116Z">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1608275240273">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1608275240347">-->
 
   
 </head>
@@ -135,15 +135,15 @@
         <div class="nexmoe-post">
   
       <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="它的名字是: Canvas Particle" class="lazyload">
-          <h1>它的名字是: Canvas Particle</h1>
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="InnoDB记录存储结构" class="lazyload">
+          <h1>InnoDB记录存储结构</h1>
       </div>
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年01月10日</a>
-    <a><i class="nexmoefont icon-areachart"></i>286 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年12月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>981 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -151,77 +151,36 @@
   </div>
 
   <article>
-    <p><a href="https://codepen.io/shucha/pen/povdNVN" target="_blank" rel="noopener">代码和效果预览</a></p>
-<h4 id="最初的想法"><a href="#最初的想法" class="headerlink" title="最初的想法:"></a>最初的想法:</h4><p>在canvas画出随机的点并计算点之间的距离连线</p>
-<pre><code class="js">&#39;use strict&#39;
+    <h3 id="InnoDB-行格式"><a href="#InnoDB-行格式" class="headerlink" title="InnoDB 行格式"></a>InnoDB 行格式</h3><p>InnoDB设计了4种不同的行格式， 分别是Compact、Redundant、Dynamic和Compressed.</p>
+<h4 id="指定行格式的语法"><a href="#指定行格式的语法" class="headerlink" title="指定行格式的语法"></a>指定行格式的语法</h4><pre><code class="sql">CREATE TABLE 表名 (列的信息) ROW_FORMAT=行格式名称
 
-class Ball {
-    constructor(x, y, xSpeed, ySpeed) {
-        this.x = x;
-        this.y = y;
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
-     }
-
-     draw() {
-         //TODO 画出点
-         //TODO 循环这个点与其他点的距离并连线
-     }
-
-     update() {
-         this.x += this.xSpeed;
-        this.y += this.ySpeed;
-        this.xSpeed *= (this.x &gt;= canvas.width || this.x &lt;= 0) ? -1 : 1;
-        this.ySpeed *= (this.y &gt;= canvas.height || this.y &lt;= 0) ? -1 : 1;
-        this.draw();
-     }
-}
-
-const animate = () =&gt; {
-    requestAnimationFrame(animate);
-    // TODO
-}
-
-animate();</code></pre>
-<p>实际效果不理想，太卡了. 可能是因为在循环计算距离时会不停的创建对象(<code>待确认</code>).</p>
-<h4 id="修改之后："><a href="#修改之后：" class="headerlink" title="修改之后："></a>修改之后：</h4><pre><code class="js">&#39;use strict&#39;
-
-let dots = [];
-for (let i=0; i&lt;200; i++) {
-    dots.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        xSpeed: getRandomNumber(),
-        ySpeed: getRandomNumber(),
-        max: 6000
-    });
-}
-
-const animate = () =&gt; {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let dot of balls) {
-        dot.x += dot.xSpeed;
-        dot.y += dot.ySpeed;
-        dot.xSpeed *= (dot.x &gt;= canvas.width || dot.x &lt;= 0) ? -1 : 1;
-        dot.ySpeed *= (dot.y &gt;= canvas.height || dot.y &lt;= 0) ? -1 : 1;
-        ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
-
-        for (let dot2 of balls) {
-            //TODO 计算距离并画出连线
-        }
-    }
-}
-
-animate();</code></pre>
-<p>之后改成了Json对象+函数的形式，效果不错.</p>
+ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
+<h4 id="Compact"><a href="#Compact" class="headerlink" title="Compact"></a>Compact</h4><p>在Compact格式的行中，一条完整的记录可以被分为<code>记录的额外信息</code>和<code>记录的真实数据</code>两大部分.</p>
+<h5 id="记录的额外信息"><a href="#记录的额外信息" class="headerlink" title="记录的额外信息"></a>记录的额外信息</h5><p>InnoDB为了描述一条数据的信息，需要在数据开头添加额外的一些信息，这些信息分为三类，分别是: <code>变长字段长度列表</code>、<code>NULL值列表</code>和<code>记录头信息</code></p>
+<ol>
+<li>变长字段长度列表: Mysql支持一些边长数据类型，例如: VARCHAR, TEXT, BOLB, VARBINARY. 我们把拥有这些数据类型的列为变长字段, 变长字段中存储的字节数是不固定的. <em>在<code>Compact</code>行格式中，把所有变长字段的真实数据占用的字节长度都存放在记录的开头部位，从而形成一个变长字段长度列表，各变长字段数据占用的字节数按照<code>列的顺序逆序</code>存放.</em><br> ** 如果表使用的字符集是不变长字符集,例如: ASCII(每个字符一个字节)，那么拥有<code>CHAR</code>类型的列<code>不是变长字段</code>，如果字符集是变长字符集, 例如: UTF8(每个字符1-3个字节， UTF8-MB4 1-4个字节) 那么拥有<code>CHAR</code>类型的列<code>是变长字段</code> **</li>
+<li>NULL值列表: Mysql允许列存储NULL值，所以Compact行格式把这些值为NULL的列统一管理起来，存储到NULL值列表中. 它的处理过程:<ol>
+<li>首先统计表中允许存储NULL值的列<ol start="2">
+<li>将每个允许存储NULL值的列对应一个二级制位，二进制位按照列的顺序逆序排列. 二进制位的值为1时，代表该列的值为NULL, 二进制位的值为0时，代表该列的值不为NULL.</li>
+<li>NULL值列表必须用整数个字节的位表示，如果使用的二进制位个数不是整数个字节, 则在字节的高位补0.</li>
+</ol>
+** 如果表中没有允许存储 NULL 的列，则 NULL值列表 也不存在了**</li>
+</ol>
+</li>
+<li>记录头信息 // Todo</li>
+</ol>
+<h4 id="Redundant"><a href="#Redundant" class="headerlink" title="Redundant"></a>Redundant</h4><p>Mysql5 之前使用的行格式</p>
+<h4 id="Dynamic-和-Compressed"><a href="#Dynamic-和-Compressed" class="headerlink" title="Dynamic 和 Compressed"></a>Dynamic 和 Compressed</h4><p>Mysql5.7后默认使用Dynamic作为默认的行格式<br>Dynamic 和 Compressed 处理行数据的方式与Compact基本相似，只不过在处理行溢出数据时有分歧. 另外Compressed行格式会采用压缩算法对页面进行压缩，以节省空间。</p>
+<h4 id="行溢出"><a href="#行溢出" class="headerlink" title="行溢出"></a>行溢出</h4><p>InnoDB将磁盘中的数据分成16KB的页，也就是16384字节，并规定一个页中最少存在两条数据. 每个页除了存放我们的记录以外，也需要存储一些额外的信息, 这些信息加在一起需要132个字节. 每行数据记录额外信息的数据为27个字节， 所以一行数据的最大长度：</p>
+<pre><code class="sql">132 + 2 × (27 + n) &lt; 16384</code></pre>
+<p>得出的解为: <code>n &lt; 8099</code>. 而一个VARCHAR类型的列就最多可以存储65532个字节，显然8099字节不能满足需求.<br>对于<code>Compact</code>和<code>Redundant</code>行格式来说，如果某一列中的数据非常多的话，在本记录的真实数据处只会存储该列的前768个字节的数据和一个指向其他页的地址(20个字节)，然后把剩下的数据存放到其他页中，这个过程也叫做行溢出，存储超出768字节的那些页面也被称为溢出页。而<code>Dynamic</code> 和 <code>Compressed</code>在处理行溢出时: <em>不会在记录的真实数据处存储字段真实数据的前768个字节，而是把所有的字节都存储到其他页面中，只在记录的真实数据处存储其他页面的地址.</em></p>
 
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
     
-        <a class="nexmoefont icon-tag-fill -link" href="/tags/canvas/" rel="tag">canvas</a>
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/Mysql-InndDB/" rel="tag">Mysql, InndDB</a>
     
 </div>
 
@@ -230,7 +189,7 @@ animate();</code></pre>
       
   <div class="nexmoe-post-copyright">
     <strong>本文作者：</strong>shucha<br>
-    <strong>本文链接：</strong><a href="/http:/yarn.run/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" title="http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;01&#x2F;10&#x2F;%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;01&#x2F;10&#x2F;%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle&#x2F;</a><br>
+    <strong>本文链接：</strong><a href="/http:/yarn.run/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" title="http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;12&#x2F;18&#x2F;InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;yarn.run&#x2F;2020&#x2F;12&#x2F;18&#x2F;InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84&#x2F;</a><br>
     
       <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
     
@@ -260,7 +219,7 @@ animate();</code></pre>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1608275240275"></script>-->
+<!--<script src="/js/app.js?v=1608275240349"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>

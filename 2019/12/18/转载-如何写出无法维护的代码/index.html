@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
+  
+  <title>转载 如何写出无法维护的代码 - SHUCHA</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="hello, world!">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
   
 
-  
-  <title>转载 如何写出无法维护的代码 | SHUCHA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
   <meta name="description" content="原文链接: 酷壳-如何写出无法维护的代码 程序命名 容易输入的名字。比如：Fred，asdf 单字母的变量名。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….） 有创意地拼写错误。比如：SetPintleOpening， SetPintalClosing。这样可以让人很难搜索代码。 抽象。比如：ProcessData, DoIt, GetData… 抽象到就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="转载 如何写出无法维护的代码">
@@ -16,165 +21,136 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-18T08:50:32.035Z">
 <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-    <link rel="alternate" href="/atom.xml" title="SHUCHA" type="application/atom+xml">
+  <!--<link rel="stylesheet" href="/css/style.css?v=1608275240279">-->
+
   
-  
-    <link rel="icon" href="/images/favicon.ico">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <canvas id="canvas" style="position: absolute;"></canvas>
-<header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">SHUCHA</a>
-      </h1>
-      
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" target="_blank" rel="noopener" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="shucha" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="shucha"></a>
+       </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="shucha">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="shucha" alt="shucha">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>10</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
         
-      </nav>
-      <nav id="sub-nav">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yarn.run"></form>
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Mysql-InndDB/" style="font-size: 10px;">Mysql, InndDB</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/transition/" style="font-size: 10px;">transition</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">前端组件</a> <a href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" style="font-size: 10px;">文件拖拽</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 shucha
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="转载 如何写出无法维护的代码" class="lazyload">
+          <h1>转载 如何写出无法维护的代码</h1>
       </div>
-    </div>
-  </div>
-</header>
-<script>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
-const getRandomNumber = () => {
-	return Math.random() * 2 - 1;
-}
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 14 分钟</a>
+</div>
 
-const randomColors = colors => {
-	return colors[Math.floor(Math.random() * colors.length)];
-}
-
-const getDistance = (x1, y1, x2, y2) => {
-	const xc = x1 - x2;
-   const yc = y1 - y2;
-	return xc * xc + yc * yc;
-}
-
-const resize = () => {
-	canvas.width = window.innerWidth; 
-	canvas.height = 300; 
-}
-
-resize();
-window.onresize = resize;
-
-let position = {
-	x: null,
-	y: null,
-	xSpeed: 0,
-	ySpeed: 0,
-	max: 20000
-};
-
-window.onmousemove = e => {
-	position.x = e.clientX;
-	position.y = e.clientY;
-};
-
-window.onmouseout = e => {
-	position.x = null;
-	position.y = null;
-};
-
-let dots = [];
-for (let i=0; i<200; i++) {
-	dots.push({
-		x: Math.random() * canvas.width,
-		y: Math.random() * canvas.height,
-		xSpeed: getRandomNumber(),
-		ySpeed: getRandomNumber(),
-		max: 6000
-	});
-}
-
-const animate = () => {
-	const balls = [position].concat(dots);
-	requestAnimationFrame(animate);
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	for (let dot of balls) {
-		dot.x += dot.xSpeed;
-		dot.y += dot.ySpeed;
-		dot.xSpeed *= (dot.x >= canvas.width || dot.x <= 0) ? -1 : 1;
-		dot.ySpeed *= (dot.y >= canvas.height || dot.y <= 0) ? -1 : 1;
-		ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
-		
-		for (let dot2 of balls) {
-			if (dot === dot2 || dot2.x === null || dot2.y === null) continue;
-			const dis = getDistance(dot.x, dot.y, dot2.x, dot2.y);
-			const xc = dot.x - dot2.x;
-   		const yc = dot.y - dot2.y;
-			
-			if (dis <= dot2.max) {
-				if (dot2 === position && dis > (dot2.max / 2)) {
-					dot.x -= xc * 0.03;
-					dot.y -= yc * 0.03;
-				 }
-				ctx.beginPath();
-				ctx.lineWidth = 0.1;
-				ctx.strokeStyle = 'rgba(255,255,255, 1)';
-				ctx.moveTo(dot.x, dot.y);
-				ctx.lineTo(dot2.x, dot2.y);
-				ctx.stroke();
-			}
-		}
-	}
-}
-
-animate();
-</script>
-      <div class="outer">
-        <section id="main"><article id="post-转载-如何写出无法维护的代码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" class="article-date">
-  <time datetime="2019-12-18T08:47:53.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
+  <div class="nexmoe-post-right">
     
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      转载 如何写出无法维护的代码
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文链接: <a href="https://coolshell.cn/articles/4758.html" target="_blank" rel="noopener">酷壳-如何写出无法维护的代码</a></p>
+  <article>
+    <p>原文链接: <a href="https://coolshell.cn/articles/4758.html" target="_blank" rel="noopener">酷壳-如何写出无法维护的代码</a></p>
 <h4 id="程序命名"><a href="#程序命名" class="headerlink" title="程序命名"></a>程序命名</h4><ul>
 <li><strong>容易输入的名字</strong>。比如：Fred，asdf</li>
 <li><strong>单字母的变量名</strong>。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….）</li>
@@ -193,16 +169,25 @@ animate();
 <h4 id="伪装欺诈"><a href="#伪装欺诈" class="headerlink" title="伪装欺诈"></a>伪装欺诈</h4><ul>
 <li><strong>把注释和代码交织在一起</strong>。</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;array_len; j+ =<span class="number">8</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    total += <span class="built_in">array</span>[j+<span class="number">0</span> ];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    total += <span class="built_in">array</span>[j+<span class="number">1</span> ];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    total += <span class="built_in">array</span>[j+<span class="number">2</span> ]; <span class="comment">/* Main body of</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">    total += array[j+3]; * loop is unrolled</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">    total += array[j+4]; * for greater speed.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">    total += array[j+5]; */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    total += <span class="built_in">array</span>[j+<span class="number">6</span> ];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    total += <span class="built_in">array</span>[j+<span class="number">7</span> ];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
+<pre><code class="c">for(j=0; j&lt;array_len; j+ =8)
+{
+    total += array[j+0 ];
+    total += array[j+1 ];
+    total += array[j+2 ]; /* Main body of
+    total += array[j+3]; * loop is unrolled
+    total += array[j+4]; * for greater speed.
+    total += array[j+5]; */
+    total += array[j+6 ];
+    total += array[j+7 ];
+}</code></pre>
 <ul>
 <li><p><strong>隐藏宏定义</strong>。如：#define a=b a=0-b，当人们看到a=b时，谁也想不到那是一个宏。</p>
 </li>
 <li><p><strong>换行</strong>。如下所示，下面的示例使用搜索xy_z变得困难。</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> local_var xy\</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">_z <span class="comment">// local_var OK</span></span></pre></td></tr></table></figure>
-
+<pre><code class="c">#define local_var xy\
+_z // local_var OK</code></pre>
 <ul>
 <li><p><strong>代码和显示不一致</strong>。比如，你的界面显示叫postal code，但是代码里确叫 zipcode.</p>
 </li>
@@ -211,8 +196,9 @@ animate();
 <li><p><strong>使用同意词</strong>。如：</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> xxx global_var <span class="comment">// in file std.h&amp;nbsp;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> xy_z xxx <span class="comment">// in file ..\other\substd.h&amp;nbsp;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> local_var xy_z <span class="comment">// in file ..\codestd\inst.h</span></span></span></pre></td></tr></table></figure>
-
+<pre><code class="c">#define xxx global_var // in file std.h&amp;nbsp;
+#define xy_z xxx // in file ..\other\substd.h&amp;nbsp;
+#define local_var xy_z // in file ..\codestd\inst.h</code></pre>
 <ul>
 <li><p><strong>使用相似的变量名</strong>。如：单词相似，swimmer 和 swimner，字母相似：ilI1| 或 oO08。parselnt 和 parseInt， D0Calc 和 DOCalc。还有这一组：xy_Z, xy__z, _xy_z, _xyz, XY_Z, xY_z, Xy_z。</p>
 </li>
@@ -223,8 +209,23 @@ animate();
 <li><p><strong>#define</strong>。看过本站那些混乱代码的文章，你都会知道宏定义和预编译对于写出不可读的代码的重大意义。不过，一个具有想像力的东西是——在头文件中使用预编译来查看这个头文件被include了几次，而被include不同的次数时，其中的函数定义完全不一样。</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 3rd time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">char</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DONE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 2nd time around&lt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">void</span>* str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TWICE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// put stuff here to declare 1st time around</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> str)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ONCE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// ONCE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// TWICE</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// DONE</span></span></span></pre></td></tr></table></figure>
-
+<pre><code class="c">#ifndef DONE
+#ifdef TWICE
+// put stuff here to declare 3rd time around
+void g(char* str);
+#define DONE
+#else // TWICE
+#ifdef ONCE
+// put stuff here to declare 2nd time around&lt;
+void g(void* str);
+#define TWICE
+#else // ONCE
+// put stuff here to declare 1st time around
+void g(std::string str);
+#define ONCE
+#endif // ONCE
+#endif // TWICE
+#endif // DONE</code></pre>
 <h4 id="文档和注释"><a href="#文档和注释" class="headerlink" title="文档和注释"></a>文档和注释</h4><ul>
 <li><strong>在注释中撒谎</strong>。你不用真的去撒谎，只需在改代码的时候不要更新注释就可以了。</li>
 <li><strong>注释明显的东西</strong>。比如：/* add 1 to i */。（参看“<a href="https://coolshell.cn/articles/2746.html" target="_blank" rel="noopener">五种应该避免的注释</a>”）</li>
@@ -292,138 +293,61 @@ animate();
 <p>这个文档中还有很多很多，实在是太TMD强大了，大家自己去看看吧。有精力有能力的朋友不妨把其翻译成中文。</p>
 <p>总之，我们的口号是——</p>
 <h4 id="Write-Everywhere-Read-Nowhere"><a href="#Write-Everywhere-Read-Nowhere" class="headerlink" title="Write Everywhere, Read Nowhere"></a>Write Everywhere, Read Nowhere</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ck93wg6fo0009ac6bgz6hg0qv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-<nav id="article-nav">
-  
-    <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          它的名字是: Canvas Particle
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">前端组件 Skeleton Screen</div>
-    </a>
-  
-</nav>
+    
+</div>
 
-  
-</article>
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>shucha<br>
+    <strong>本文链接：</strong><a href="/http:/yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" title="http:&#x2F;&#x2F;yarn.run&#x2F;2019&#x2F;12&#x2F;18&#x2F;%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;yarn.run&#x2F;2019&#x2F;12&#x2F;18&#x2F;%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
 
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
 </section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transition/" rel="tag">transition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" rel="tag">浏览器兼容</a></li></ul>
+  </div>
+</div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1608275240281"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/transition/" style="font-size: 10px;">transition</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">前端组件</a> <a href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" style="font-size: 10px;">文件拖拽</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">它的名字是: Canvas Particle</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/">前端组件 Skeleton Screen</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">Notification 放到React 中后产生的一些问题</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/">firefox的锚点与chrome的锚点表现不同</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer" style="padding: 20px 0;">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner" style="display: flex; justify-content: center;">
-      &copy; 2020 shucha
-      <a href="http://www.beian.miit.gov.cn" target="_blank">鲁ICP备19063433号-1</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
 
 
 
-  </div>
+
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+
 </html>
