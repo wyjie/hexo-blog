@@ -1,156 +1,179 @@
 <!DOCTYPE html>
-
-<html lang="zh-CN">
-
+<html>
 <head>
+  <meta charset="utf-8">
+  
+
   
   <title>SHUCHA</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="hello, world!">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  
-  
-
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="hello, world!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SHUCHA">
-<meta property="og:url" content="http:&#x2F;&#x2F;yarn.run&#x2F;">
+<meta property="og:url" content="https:&#x2F;&#x2F;yarn.run&#x2F;">
 <meta property="og:site_name" content="SHUCHA">
 <meta property="og:description" content="hello, world!">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1608275240320">-->
-
+    <link rel="alternate" href="/atom.xml" title="SHUCHA" type="application/atom+xml">
   
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" target="_blank" rel="noopener" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="shucha" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="shucha"></a>
-       </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <canvas id="canvas" style="position: absolute;"></canvas>
+<header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">SHUCHA</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yarn.run"></form>
+      </div>
     </div>
   </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="shucha">
-            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="shucha" alt="shucha">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>文章</span>10</div>
-        <div><span>标签</span>6</div>
-        <div><span>分类</span>0</div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博客
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
-            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
-            <div class="mdui-list-item-content">
-                我的朋友
-            </div>
-        </a>
-        
-    </div>
-    <aside id="nexmoe-sidebar">
-  
-  <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search">
-        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
-            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
-        </form>
-    </div>
-</div>
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">社交按钮</h3>
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a>
-    </div>
-</div>
-  
-  
+</header>
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext('2d');
+const getRandomNumber = () => {
+	return Math.random() * 2 - 1;
+}
 
+const randomColors = colors => {
+	return colors[Math.floor(Math.random() * colors.length)];
+}
+
+const getDistance = (x1, y1, x2, y2) => {
+	const xc = x1 - x2;
+   const yc = y1 - y2;
+	return xc * xc + yc * yc;
+}
+
+const resize = () => {
+	canvas.width = window.innerWidth; 
+	canvas.height = 300; 
+}
+
+resize();
+window.onresize = resize;
+
+let position = {
+	x: null,
+	y: null,
+	xSpeed: 0,
+	ySpeed: 0,
+	max: 20000
+};
+
+window.onmousemove = e => {
+	position.x = e.clientX;
+	position.y = e.clientY;
+};
+
+window.onmouseout = e => {
+	position.x = null;
+	position.y = null;
+};
+
+let dots = [];
+for (let i=0; i<200; i++) {
+	dots.push({
+		x: Math.random() * canvas.width,
+		y: Math.random() * canvas.height,
+		xSpeed: getRandomNumber(),
+		ySpeed: getRandomNumber(),
+		max: 6000
+	});
+}
+
+const animate = () => {
+	const balls = [position].concat(dots);
+	requestAnimationFrame(animate);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	for (let dot of balls) {
+		dot.x += dot.xSpeed;
+		dot.y += dot.ySpeed;
+		dot.xSpeed *= (dot.x >= canvas.width || dot.x <= 0) ? -1 : 1;
+		dot.ySpeed *= (dot.y >= canvas.height || dot.y <= 0) ? -1 : 1;
+		ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+		
+		for (let dot2 of balls) {
+			if (dot === dot2 || dot2.x === null || dot2.y === null) continue;
+			const dis = getDistance(dot.x, dot.y, dot2.x, dot2.y);
+			const xc = dot.x - dot2.x;
+   		const yc = dot.y - dot2.y;
+			
+			if (dis <= dot2.max) {
+				if (dot2 === position && dis > (dot2.max / 2)) {
+					dot.x -= xc * 0.03;
+					dot.y -= yc * 0.03;
+				 }
+				ctx.beginPath();
+				ctx.lineWidth = 0.1;
+				ctx.strokeStyle = 'rgba(255,255,255, 1)';
+				ctx.moveTo(dot.x, dot.y);
+				ctx.lineTo(dot2.x, dot2.y);
+				ctx.stroke();
+			}
+		}
+	}
+}
+
+animate();
+</script>
+      <div class="outer">
+        <section id="main">
   
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">标签云</h3>
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Mysql-InndDB/" style="font-size: 10px;">Mysql, InndDB</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/transition/" style="font-size: 10px;">transition</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">前端组件</a> <a href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" style="font-size: 10px;">文件拖拽</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a>
-    </div>
+    <article id="post-InnoDB记录存储结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2020-12-18T06:21:06.000Z" itemprop="datePublished">2020-12-18</time>
+</a>
     
   </div>
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2020 shucha
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
-</div><!-- .nexmoe-drawer -->
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <section class="nexmoe-posts">
+  <div class="article-inner">
     
-    <div class="nexmoe-post">
-        <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="InnoDB记录存储结构" class="lazyload">
-                    <h1>InnoDB记录存储结构</h1>
-                </div>
-            
-        </a>
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">InnoDB记录存储结构</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年12月18日</a>
-            <a><i class="nexmoefont icon-areachart"></i>981 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
-        </div>
-
-        <article>
-            
-                <h3 id="InnoDB-行格式"><a href="#InnoDB-行格式" class="headerlink" title="InnoDB 行格式"></a>InnoDB 行格式</h3><p>InnoDB设计了4种不同的行格式， 分别是Compact、Redundant、Dynamic和Compressed.</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="InnoDB-行格式"><a href="#InnoDB-行格式" class="headerlink" title="InnoDB 行格式"></a>InnoDB 行格式</h3><p>InnoDB设计了4种不同的行格式， 分别是Compact、Redundant、Dynamic和Compressed.</p>
 <h4 id="指定行格式的语法"><a href="#指定行格式的语法" class="headerlink" title="指定行格式的语法"></a>指定行格式的语法</h4><pre><code class="sql">CREATE TABLE 表名 (列的信息) ROW_FORMAT=行格式名称
 
 ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
@@ -166,7 +189,10 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
 ** 如果表中没有允许存储 NULL 的列，则 NULL值列表 也不存在了**</li>
 </ol>
 </li>
-<li>记录头信息 // Todo</li>
+<li>记录头信息 <ol>
+<li>delete_mask: 1个字节，表示行是否被删除，值为0表示没有删除，被删除的记录依然保存在<code>页</code>上,因为删除和重新排列数据会影响性能，删除的记录会组成一个<code>垃圾链表</code>, 垃圾链表中记录的存储空间为<code>可重用空间</code>，当有新的插入时可能把这些被删除的记录占用的存储空间覆盖掉.</li>
+</ol>
+</li>
 </ol>
 <h4 id="Redundant"><a href="#Redundant" class="headerlink" title="Redundant"></a>Redundant</h4><p>Mysql5 之前使用的行格式</p>
 <h4 id="Dynamic-和-Compressed"><a href="#Dynamic-和-Compressed" class="headerlink" title="Dynamic 和 Compressed"></a>Dynamic 和 Compressed</h4><p>Mysql5.7后默认使用Dynamic作为默认的行格式<br>Dynamic 和 Compressed 处理行数据的方式与Compact基本相似，只不过在处理行溢出数据时有分歧. 另外Compressed行格式会采用压缩算法对页面进行压缩，以节省空间。</p>
@@ -174,75 +200,116 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
 <pre><code class="sql">132 + 2 × (27 + n) &lt; 16384</code></pre>
 <p>得出的解为: <code>n &lt; 8099</code>. 而一个VARCHAR类型的列就最多可以存储65532个字节，显然8099字节不能满足需求.<br>对于<code>Compact</code>和<code>Redundant</code>行格式来说，如果某一列中的数据非常多的话，在本记录的真实数据处只会存储该列的前768个字节的数据和一个指向其他页的地址(20个字节)，然后把剩下的数据存放到其他页中，这个过程也叫做行溢出，存储超出768字节的那些页面也被称为溢出页。而<code>Dynamic</code> 和 <code>Compressed</code>在处理行溢出时: <em>不会在记录的真实数据处存储字段真实数据的前768个字节，而是把所有的字节都存储到其他页面中，只在记录的真实数据处存储其他页面的地址.</em></p>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" data-id="ckm1pzm9w0009pse65pbcfdgz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql-InndDB/" rel="tag">Mysql, InndDB</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-canvas-角坐标" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/" class="article-date">
+  <time datetime="2020-09-08T07:30:31.000Z" itemprop="datePublished">2020-09-08</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="canvas 角坐标" class="lazyload">
-                    <h1>canvas 角坐标</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/">canvas 角坐标</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月08日</a>
-            <a><i class="nexmoefont icon-areachart"></i>0 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                
-            
-        </article>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/" data-id="ckm1pzm9o0004pse6czr7hst9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-canvas编程中的向量定义" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/" class="article-date">
+  <time datetime="2020-09-08T07:29:59.000Z" itemprop="datePublished">2020-09-08</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="canvas编程中的向量定义" class="lazyload">
-                    <h1>canvas编程中的向量定义</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/">canvas编程中的向量定义</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月08日</a>
-            <a><i class="nexmoefont icon-areachart"></i>0 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                
-            
-        </article>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/" data-id="ckm1pzm9v0008pse6a6253ven" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-它的名字是-Canvas-Particle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" class="article-date">
+  <time datetime="2020-01-10T01:38:30.000Z" itemprop="datePublished">2020-01-10</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="它的名字是: Canvas Particle" class="lazyload">
-                    <h1>它的名字是: Canvas Particle</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">它的名字是: Canvas Particle</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年01月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>286 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p><a href="https://codepen.io/shucha/pen/povdNVN" target="_blank" rel="noopener">代码和效果预览</a></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://codepen.io/shucha/pen/povdNVN" target="_blank" rel="noopener">代码和效果预览</a></p>
 <h4 id="最初的想法"><a href="#最初的想法" class="headerlink" title="最初的想法:"></a>最初的想法:</h4><p>在canvas画出随机的点并计算点之间的距离连线</p>
 <pre><code class="js">&#39;use strict&#39;
 
@@ -307,29 +374,44 @@ const animate = () =&gt; {
 animate();</code></pre>
 <p>之后改成了Json对象+函数的形式，效果不错.</p>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" data-id="ckm1pzma4000gpse62eqx8e8i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-转载-如何写出无法维护的代码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time datetime="2019-12-18T08:47:53.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="转载 如何写出无法维护的代码" class="lazyload">
-                    <h1>转载 如何写出无法维护的代码</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月18日</a>
-            <a><i class="nexmoefont icon-areachart"></i>3.4k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 14 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>原文链接: <a href="https://coolshell.cn/articles/4758.html" target="_blank" rel="noopener">酷壳-如何写出无法维护的代码</a></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文链接: <a href="https://coolshell.cn/articles/4758.html" target="_blank" rel="noopener">酷壳-如何写出无法维护的代码</a></p>
 <h4 id="程序命名"><a href="#程序命名" class="headerlink" title="程序命名"></a>程序命名</h4><ul>
 <li><strong>容易输入的名字</strong>。比如：Fred，asdf</li>
 <li><strong>单字母的变量名</strong>。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….）</li>
@@ -472,40 +554,53 @@ void g(std::string str);
 <p>这个文档中还有很多很多，实在是太TMD强大了，大家自己去看看吧。有精力有能力的朋友不妨把其翻译成中文。</p>
 <p>总之，我们的口号是——</p>
 <h4 id="Write-Everywhere-Read-Nowhere"><a href="#Write-Everywhere-Read-Nowhere" class="headerlink" title="Write Everywhere, Read Nowhere"></a>Write Everywhere, Read Nowhere</h4>
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ckm1pzma7000kpse6dnxrb9q5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-前端组件-Skeleton-Screen" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" class="article-date">
+  <time datetime="2019-12-17T08:29:27.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="前端组件 Skeleton Screen" class="lazyload">
-                    <h1>前端组件 Skeleton Screen</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/">前端组件 Skeleton Screen</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>294 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>写作动力来自于知乎专栏: <a href="https://zhuanlan.zhihu.com/c_87416856" target="_blank" rel="noopener">这个控件叫什么</a> 中的 <code>这个控件叫：Skeleton Screen/加载占位图</code></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写作动力来自于知乎专栏: <a href="https://zhuanlan.zhihu.com/c_87416856" target="_blank" rel="noopener">这个控件叫什么</a> 中的 <code>这个控件叫：Skeleton Screen/加载占位图</code></p>
 <p><a href="https://codepen.io/shucha/pen/oNgbRvM" target="_blank" rel="noopener">效果预览</a></p>
 <p>这里主要用到的是<code>liner-gradient</code>和<code>background-position</code></p>
 <p>使用<code>linear-gradient</code>生成一个渐变背景:</p>
-<pre><code>linear-gradient(90deg, red 25%, yellow 37%, red 63%)</code></pre><p><img data-sizes="auto" data-src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/WX20191217-143917%402x.png" alt="linear-gradient(90deg, red 25%, yellow 37%, red 63%)" class="lazyload"></p>
+<pre><code>linear-gradient(90deg, red 25%, yellow 37%, red 63%)</code></pre><p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/WX20191217-143917%402x.png" alt="linear-gradient(90deg, red 25%, yellow 37%, red 63%)"></p>
 <p>使用红色和黄色的原因是因为颜色比较清晰方便测试，正常使用可以替换为:</p>
 <pre><code class="css">background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);</code></pre>
 <p>想了解更多<code>linear-gradient</code> 的用法? 请阅读<a href="https://www.w3cplus.com/css3/do-you-really-understand-css-linear-gradients.html" target="_blank" rel="noopener">你真的理解CSS的linear-gradient</a>， 文章详细解释了<code>linear-gradient</code>的一些工作细节并在文末提供了一个调整<code>linear-gradient</code>渐变效果的小工具, 上图出自于此。</p>
 <p>将渐变容器的<code>bcakground-size</code>定义为 <code>400%, 100%</code></p>
 <pre><code class="css">background-size: 400% 100%;</code></pre>
 <p>因为这个时候背景比容器大(背景宽度为 容器宽度 * 400%)，当background-position的值从100%递减到0%时，会有这样的效果：</p>
-<p><img data-sizes="auto" data-src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-17-2019%2016-01-10.gif" alt="background-position: 100%, background-position: 0%" class="lazyload"></p>
+<p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-17-2019%2016-01-10.gif" alt="background-position: 100%, background-position: 0%"></p>
 <p>然后通过<code>animation</code>不断播放这个动画</p>
 <pre><code class="css">@keyframes loadding
     0%
@@ -522,94 +617,139 @@ void g(std::string str);
     animation: loadding 1.2s ease infinite</code></pre>
 <p>这样就实现了一个简单的Skeleton Screen.</p>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ckm1pzma0000cpse688elda7j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Notification-放到React-中后产生的一些问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2019-12-15T10:30:49.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Notification 放到React 中后产生的一些问题" class="lazyload">
-                    <h1>Notification 放到React 中后产生的一些问题</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">Notification 放到React 中后产生的一些问题</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月15日</a>
-            <a><i class="nexmoefont icon-areachart"></i>83 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>因为项目需要写了一个Notification 组件，<a href="https://codepen.io/shucha/pen/ZEYOQdQ" target="_blank" rel="noopener">demo</a>放在 codepen中. 但在我将它应用到React中时却出现了一些问题.</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为项目需要写了一个Notification 组件，<a href="https://codepen.io/shucha/pen/ZEYOQdQ" target="_blank" rel="noopener">demo</a>放在 codepen中. 但在我将它应用到React中时却出现了一些问题.</p>
 <ol>
 <li>旧的dom节点不会被删除，无法触发animation/transition</li>
 <li>直接操作dom节点，不符合数据驱动UI的设计理念</li>
 <li>它应该是一个高阶组件</li>
 </ol>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="ckm1pzm9j0002pse62v6h0dbo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-firefox的锚点与chrome的锚点表现不同" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" class="article-date">
+  <time datetime="2019-12-10T02:46:44.000Z" itemprop="datePublished">2019-12-10</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="firefox的锚点与chrome的锚点表现不同" class="lazyload">
-                    <h1>firefox的锚点与chrome的锚点表现不同</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/">firefox的锚点与chrome的锚点表现不同</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>89 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p><a href="https://codepen.io/shucha/pen/MWYKLJo" target="_blank" rel="noopener">效果预览</a></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://codepen.io/shucha/pen/MWYKLJo" target="_blank" rel="noopener">效果预览</a></p>
 <p>如果页面的宽度高度足够的情况下，在火狐中点击一个锚元素(<code>&lt;a&gt;</code>) 页面会定位到目标元素的位置：</p>
-<p><img data-sizes="auto" data-src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-55-06.gif" alt="火狐" class="lazyload"></p>
+<p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-55-06.gif" alt="火狐"></p>
 <p>chrome</p>
-<p><img data-sizes="auto" data-src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-52-07.gif" alt="chrome" class="lazyload"></p>
+<p><img src="https://blog-image-1255951271.cos.ap-beijing.myqcloud.com/Dec-10-2019%2010-52-07.gif" alt="chrome"></p>
 <p>有时候我们不想让页面偏移，可以将锚元素的目标设置成一个隐藏的元素并且将它定位到页面边缘。</p>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ckm1pzm9t0007pse63n83c6js" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" rel="tag">浏览器兼容</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS-Transition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/07/CSS-Transition/" class="article-date">
+  <time datetime="2019-12-07T12:11:02.000Z" itemprop="datePublished">2019-12-07</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/07/CSS-Transition/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Css Transition" class="lazyload">
-                    <h1>Css Transition</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/07/CSS-Transition/">Css Transition</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月07日</a>
-            <a><i class="nexmoefont icon-areachart"></i>640 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-        </div>
-
-        <article>
-            
-                <p><a href="https://codepen.io/shucha/pen/WNbQXyP" target="_blank" rel="noopener">效果预览</a></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://codepen.io/shucha/pen/WNbQXyP" target="_blank" rel="noopener">效果预览</a></p>
 <h2 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener">transition</a>  属性是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-duration" target="_blank" rel="noopener"><code>transition-duration</code></a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-timing-function" target="_blank" rel="noopener"><code>transition-timing-function</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-delay" target="_blank" rel="noopener"><code>transition-delay</code></a> 的一个<a href="https://developer.mozilla.org/en-US/docs/CSS/Shorthand_properties" target="_blank" rel="noopener">简写属性</a>。可以为一个元素在不同状态切换时定义不同的过渡效果。包括不同的伪类之间的切换，像是<code>:hover</code>, <code>:active</code> 。或者通过<code>JavaScript</code>实现的状态变化. 使用transition可以使页面操作更平滑.</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a></p>
 <p>指定哪个或哪些 CSS 属性用于过渡。只有指定的属性才会在过渡中发生动画，其它属性仍如通常那样瞬间变化。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-duration" target="_blank" rel="noopener"><code>transition-duration</code></a></p>
 <p>指定过渡的时长。或者为所有属性指定一个值，或者指定多个值，为每个属性指定不同的时长。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-timing-function" target="_blank" rel="noopener"><code>transition-timing-function</code></a></p>
-<p><img data-sizes="auto" data-src="https://developer.mozilla.org/files/3434/TF_with_output_gt_than_1.png" alt="img" class="lazyload"><br>指定一个函数，定义属性值怎么变化。缓动函数 <em>Timing functions</em> 定义属性如何计算。多数 <a href="https://developer.mozilla.org/en-US/docs/CSS/timing-function" target="_blank" rel="noopener">timing functions</a> 由四点定义一个 bezier 曲线。也可以从 <a href="http://easings.net/" target="_blank" rel="noopener">Easing Functions Cheat Sheet</a> 选择缓动效果。</p>
+<p><img src="https://developer.mozilla.org/files/3434/TF_with_output_gt_than_1.png" alt="img"><br>指定一个函数，定义属性值怎么变化。缓动函数 <em>Timing functions</em> 定义属性如何计算。多数 <a href="https://developer.mozilla.org/en-US/docs/CSS/timing-function" target="_blank" rel="noopener">timing functions</a> 由四点定义一个 bezier 曲线。也可以从 <a href="http://easings.net/" target="_blank" rel="noopener">Easing Functions Cheat Sheet</a> 选择缓动效果。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-delay" target="_blank" rel="noopener"><code>transition-delay</code></a></p>
 <p>指定延迟，即属性开始变化时与过渡开始发生时之间的时长。</p>
 <p>简写语法：</p>
@@ -652,29 +792,44 @@ void g(std::string str);
 <p><code>scale()</code> 变换函数通过 <code>x</code> 和 <code>y</code>指定一个 <strong>等比例放大缩小</strong> 操作。如果 <code>y</code> 没有被提供，那么假定为等同于 <code>x</code></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener">Transition 参考文档</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/transform" target="_blank" rel="noopener">Tranform 参考文档</a></p>
 
-            
-        </article>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/07/CSS-Transition/" data-id="ckm1pzma1000dpse676rkcd2z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transition/" rel="tag">transition</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-实现图片拖拽上传" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" class="article-date">
+  <time datetime="2019-12-06T09:10:24.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="实现图片拖拽上传" class="lazyload">
-                    <h1>实现图片拖拽上传</h1>
-                </div>
-            
-        </a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/">实现图片拖拽上传</a>
+    </h1>
+  
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月06日</a>
-            <a><i class="nexmoefont icon-areachart"></i>545 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-        </div>
-
-        <article>
-            
-                <p><a href="https://codepen.io/shucha/pen/BayNEVN" target="_blank" rel="noopener">效果预览</a></p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://codepen.io/shucha/pen/BayNEVN" target="_blank" rel="noopener">效果预览</a></p>
 <h3 id="拖拽相关的事件"><a href="#拖拽相关的事件" class="headerlink" title="拖拽相关的事件"></a>拖拽相关的事件</h3><table>
 <thead>
 <tr>
@@ -739,29 +894,123 @@ void g(std::string str);
 <p><em><code>File</code>继承自<code>Bold</code>, 因为 <code>FileReader</code> 继承自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget" target="_blank" rel="noopener"><code>EventTarget</code></a>，所以所有这些事件也可以通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener"><code>addEventListener</code></a>方法使用。</em></p>
 <p>###本文参考文档: <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" rel="noopener">MDN web docs</a></p>
 
-            
-        </article>
+      
     </div>
-    
-</section>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ckm1pzma5000ipse6hn0sau0d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li></ul>
 
-    </div>
+    </footer>
   </div>
-  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1608275240322"></script>-->
-
-
-    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
-
+  
+</article>
 
 
   
 
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql-InndDB/" rel="tag">Mysql, InndDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transition/" rel="tag">transition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" rel="tag">浏览器兼容</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Mysql-InndDB/" style="font-size: 10px;">Mysql, InndDB</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/transition/" style="font-size: 10px;">transition</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">前端组件</a> <a href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" style="font-size: 10px;">文件拖拽</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">InnoDB记录存储结构</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/">canvas 角坐标</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/">canvas编程中的向量定义</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">它的名字是: Canvas Particle</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer" style="padding: 20px 0;">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner" style="display: flex; justify-content: center;">
+      &copy; 2021 shucha
+      <a href="http://www.beian.miit.gov.cn" target="_blank">鲁ICP备19063433号-1</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
+  </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-
 </html>
