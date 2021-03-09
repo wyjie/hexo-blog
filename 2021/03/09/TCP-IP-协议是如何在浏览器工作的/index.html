@@ -5,15 +5,16 @@
   
 
   
-  <title>归档 | SHUCHA</title>
+  <title>TCP/IP 协议是如何在浏览器工作的 | SHUCHA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello, world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SHUCHA">
-<meta property="og:url" content="https:&#x2F;&#x2F;yarn.run&#x2F;archives&#x2F;">
+  <meta name="description" content="网际协议（Internet Protocol，简称 IP）标准互联网中的每个设备都具有一个地址，这个地址被称为IP地址，在浏览器中访问访问网站实际上是一台设备向另一台设备获取数据的行为。 IP是如何工作的如果想要把一个数据包从主机A发送的主机B，在发送前，这个数据包会被附加上主机B的Ip地址信息，并且B主机可以返回数据给A，所以还要附加主机A的Ip地址信息。这些附加信息会被装到一个叫IP头的数据结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP&#x2F;IP 协议是如何在浏览器工作的">
+<meta property="og:url" content="https:&#x2F;&#x2F;yarn.run&#x2F;2021&#x2F;03&#x2F;09&#x2F;TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84&#x2F;">
 <meta property="og:site_name" content="SHUCHA">
-<meta property="og:description" content="hello, world!">
+<meta property="og:description" content="网际协议（Internet Protocol，简称 IP）标准互联网中的每个设备都具有一个地址，这个地址被称为IP地址，在浏览器中访问访问网站实际上是一台设备向另一台设备获取数据的行为。 IP是如何工作的如果想要把一个数据包从主机A发送的主机B，在发送前，这个数据包会被附加上主机B的Ip地址信息，并且B主机可以返回数据给A，所以还要附加主机A的Ip地址信息。这些附加信息会被装到一个叫IP头的数据结">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-09T09:30:53.841Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="SHUCHA" type="application/atom+xml">
@@ -149,236 +150,81 @@ const animate = () => {
 animate();
 </script>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/" class="archive-article-date">
-  <time datetime="2021-03-09T08:21:45.000Z" itemprop="datePublished">3月 9</time>
+        <section id="main"><article id="post-TCP-IP-协议是如何在浏览器工作的" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/" class="article-date">
+  <time datetime="2021-03-09T08:21:45.000Z" itemprop="datePublished">2021-03-09</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/">TCP/IP 协议是如何在浏览器工作的</a>
+    <h1 class="article-title" itemprop="name">
+      TCP/IP 协议是如何在浏览器工作的
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="网际协议（Internet-Protocol，简称-IP）标准"><a href="#网际协议（Internet-Protocol，简称-IP）标准" class="headerlink" title="网际协议（Internet Protocol，简称 IP）标准"></a>网际协议（Internet Protocol，简称 IP）标准</h3><p>互联网中的每个设备都具有一个地址，这个地址被称为IP地址，在浏览器中访问访问网站实际上是一台设备向另一台设备获取数据的行为。</p>
+<h4 id="IP是如何工作的"><a href="#IP是如何工作的" class="headerlink" title="IP是如何工作的"></a>IP是如何工作的</h4><p>如果想要把一个数据包从主机A发送的主机B，在发送前，这个数据包会被附加上主机B的Ip地址信息，并且B主机可以返回数据给A，所以还要附加主机A的Ip地址信息。这些附加信息会被装到一个叫IP头的数据结构里，Ip头包含了Ip版本，源Ip地址，目标Ip地址，生存时间等信息。<br>将数据包从主机A发送到主机B可以简单的归纳为以下几个步骤：</p>
+<ol>
+<li>主机A上层将数据包发送到网络层<ol start="2">
+<li>网络层将Ip头附加到数据包上并交给底层</li>
+<li>底层通过物理网络将数据包发送到主机B</li>
+<li>数据包被传输到主机B的网络层，网络层拆开数据包的Ip头信息</li>
+<li>最终，网络层将数据包传输到主机B上层</li>
+</ol>
+</li>
+</ol>
+<h3 id="用户数据包协议（User-Datagram-Protocol-，简称-UDP"><a href="#用户数据包协议（User-Datagram-Protocol-，简称-UDP" class="headerlink" title="用户数据包协议（User Datagram Protocol)，简称 UDP"></a>用户数据包协议（User Datagram Protocol)，简称 UDP</h3><p>IP是非常底层的协议，只负责把数据包传送到目标设备，但不知道数据包应该交给那个程序。 所以需要在IP只上使用能和应用程序打交道的协议, 最常见的是UDP协议，UDP中最重要的信息是端口号，在电脑中，每个想访问网络的设备都需要一个端口号（如HTTP服务器的默认端口号一般是80, Mysql的默认端口号是3306)。 通过端口号UDP可以将数据包正确的发送给应用程序。 所以IP通过Ip地址将数据包发送到目标主机，UDP通过端口号将数据分发给正确的目标程序。 和Ip头一样，端口号会被装载到UDP头中，UDP头再和原始数据包合并组成新的 UDP 数据包。 UDP头中除了目标端口号，还会包含源端口号。<br>在支持UDP协议后，Ip网络的三层结构（上层，网络层，底层）可以被扩充为4层，在网络层和上层之间增加了传输层。<br>将数据包从主机A发送到主机B可以简单的归纳为以下几个步骤：</p>
+<ol>
+<li>上层将数据包发送到传输层<ol start="2">
+<li>传输层会在数据包前面附加上 UDP 头，组成新的 UDP 数据包，再将新的 UDP 数据包交给网络层</li>
+<li>网络层将Ip头附加到数据包上并交给底层</li>
+<li>底层通过物理网络将数据包发送到主机B</li>
+<li>数据包被传输到主机B的网络层，网络层拆开数据包的Ip头信息，并将数据包交给传输层</li>
+<li>在传输层，数据包中的 UDP 头会被拆开，并根据 UDP 中所提供的端口号，把数据部分交给上层的应用程序</li>
+<li>最终，主机B上层应用程序获得数据包<br><code>在使用 UDP 发送数据时，有各种因素会导致数据包出错，虽然 UDP 可以校验数据是否正确，但是对于错误的数据包，UDP 并不提供重发机制，只是丢弃当前的包，而且 UDP 在发送之后也无法知道是否能达到目的地。虽说 UDP 不能保证数据可靠性，但是传输速度却非常快，所以 UDP 会应用在一些关注速度、但不那么严格要求数据完整性的领域，如在线视频、互动游戏等。</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="TCP（Transmission-Control-Protocol，传输控制协议"><a href="#TCP（Transmission-Control-Protocol，传输控制协议" class="headerlink" title="TCP（Transmission Control Protocol，传输控制协议)"></a>TCP（Transmission Control Protocol，传输控制协议)</h3><p>对于浏览器请求，要求数据传输的可靠性。如果使用 UDP 来传输会存在两个问题：</p>
+<ol>
+<li>数据包在传输过程中容易丢失<ol start="2">
+<li>大文件会被拆分成很多小的数据包来传输，这些小的数据包会经过不同的路由，并在不同的时间到达接收端，而 UDP 协议并不知道如何组装这些数据包，从而把这些数据包还原成完整的文件。  </li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/" data-id="ckm1thbgt0002s4416lege1yw" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">单进程浏览器和多进程浏览器</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/" class="archive-article-date">
-  <time datetime="2021-03-09T08:09:39.000Z" itemprop="datePublished">3月 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/">单进程浏览器和多进程浏览器</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  <time datetime="2020-12-18T06:21:06.000Z" itemprop="datePublished">12月 18</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">InnoDB记录存储结构</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/" class="archive-article-date">
-  <time datetime="2020-09-08T07:30:31.000Z" itemprop="datePublished">9月 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/">canvas 角坐标</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/" class="archive-article-date">
-  <time datetime="2020-09-08T07:29:59.000Z" itemprop="datePublished">9月 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/">canvas编程中的向量定义</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" class="archive-article-date">
-  <time datetime="2020-01-10T01:38:30.000Z" itemprop="datePublished">1月 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">它的名字是: Canvas Particle</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" class="archive-article-date">
-  <time datetime="2019-12-18T08:47:53.000Z" itemprop="datePublished">12月 18</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" class="archive-article-date">
-  <time datetime="2019-12-17T08:29:27.000Z" itemprop="datePublished">12月 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/">前端组件 Skeleton Screen</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  <time datetime="2019-12-15T10:30:49.000Z" itemprop="datePublished">12月 15</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">Notification 放到React 中后产生的一些问题</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" class="archive-article-date">
-  <time datetime="2019-12-10T02:46:44.000Z" itemprop="datePublished">12月 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/">firefox的锚点与chrome的锚点表现不同</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 &amp;raquo;</a>
-  </nav>
 
 </section>
         

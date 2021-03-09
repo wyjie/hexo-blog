@@ -151,6 +151,108 @@ animate();
       <div class="outer">
         <section id="main">
   
+    <article id="post-TCP-IP-协议是如何在浏览器工作的" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/" class="article-date">
+  <time datetime="2021-03-09T08:21:45.000Z" itemprop="datePublished">2021-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/">TCP/IP 协议是如何在浏览器工作的</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="网际协议（Internet-Protocol，简称-IP）标准"><a href="#网际协议（Internet-Protocol，简称-IP）标准" class="headerlink" title="网际协议（Internet Protocol，简称 IP）标准"></a>网际协议（Internet Protocol，简称 IP）标准</h3><p>互联网中的每个设备都具有一个地址，这个地址被称为IP地址，在浏览器中访问访问网站实际上是一台设备向另一台设备获取数据的行为。</p>
+<h4 id="IP是如何工作的"><a href="#IP是如何工作的" class="headerlink" title="IP是如何工作的"></a>IP是如何工作的</h4><p>如果想要把一个数据包从主机A发送的主机B，在发送前，这个数据包会被附加上主机B的Ip地址信息，并且B主机可以返回数据给A，所以还要附加主机A的Ip地址信息。这些附加信息会被装到一个叫IP头的数据结构里，Ip头包含了Ip版本，源Ip地址，目标Ip地址，生存时间等信息。<br>将数据包从主机A发送到主机B可以简单的归纳为以下几个步骤：</p>
+<ol>
+<li>主机A上层将数据包发送到网络层<ol start="2">
+<li>网络层将Ip头附加到数据包上并交给底层</li>
+<li>底层通过物理网络将数据包发送到主机B</li>
+<li>数据包被传输到主机B的网络层，网络层拆开数据包的Ip头信息</li>
+<li>最终，网络层将数据包传输到主机B上层</li>
+</ol>
+</li>
+</ol>
+<h3 id="用户数据包协议（User-Datagram-Protocol-，简称-UDP"><a href="#用户数据包协议（User-Datagram-Protocol-，简称-UDP" class="headerlink" title="用户数据包协议（User Datagram Protocol)，简称 UDP"></a>用户数据包协议（User Datagram Protocol)，简称 UDP</h3><p>IP是非常底层的协议，只负责把数据包传送到目标设备，但不知道数据包应该交给那个程序。 所以需要在IP只上使用能和应用程序打交道的协议, 最常见的是UDP协议，UDP中最重要的信息是端口号，在电脑中，每个想访问网络的设备都需要一个端口号（如HTTP服务器的默认端口号一般是80, Mysql的默认端口号是3306)。 通过端口号UDP可以将数据包正确的发送给应用程序。 所以IP通过Ip地址将数据包发送到目标主机，UDP通过端口号将数据分发给正确的目标程序。 和Ip头一样，端口号会被装载到UDP头中，UDP头再和原始数据包合并组成新的 UDP 数据包。 UDP头中除了目标端口号，还会包含源端口号。<br>在支持UDP协议后，Ip网络的三层结构（上层，网络层，底层）可以被扩充为4层，在网络层和上层之间增加了传输层。<br>将数据包从主机A发送到主机B可以简单的归纳为以下几个步骤：</p>
+<ol>
+<li>上层将数据包发送到传输层<ol start="2">
+<li>传输层会在数据包前面附加上 UDP 头，组成新的 UDP 数据包，再将新的 UDP 数据包交给网络层</li>
+<li>网络层将Ip头附加到数据包上并交给底层</li>
+<li>底层通过物理网络将数据包发送到主机B</li>
+<li>数据包被传输到主机B的网络层，网络层拆开数据包的Ip头信息，并将数据包交给传输层</li>
+<li>在传输层，数据包中的 UDP 头会被拆开，并根据 UDP 中所提供的端口号，把数据部分交给上层的应用程序</li>
+<li>最终，主机B上层应用程序获得数据包<br><code>在使用 UDP 发送数据时，有各种因素会导致数据包出错，虽然 UDP 可以校验数据是否正确，但是对于错误的数据包，UDP 并不提供重发机制，只是丢弃当前的包，而且 UDP 在发送之后也无法知道是否能达到目的地。虽说 UDP 不能保证数据可靠性，但是传输速度却非常快，所以 UDP 会应用在一些关注速度、但不那么严格要求数据完整性的领域，如在线视频、互动游戏等。</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="TCP（Transmission-Control-Protocol，传输控制协议"><a href="#TCP（Transmission-Control-Protocol，传输控制协议" class="headerlink" title="TCP（Transmission Control Protocol，传输控制协议)"></a>TCP（Transmission Control Protocol，传输控制协议)</h3><p>对于浏览器请求，要求数据传输的可靠性。如果使用 UDP 来传输会存在两个问题：</p>
+<ol>
+<li>数据包在传输过程中容易丢失<ol start="2">
+<li>大文件会被拆分成很多小的数据包来传输，这些小的数据包会经过不同的路由，并在不同的时间到达接收端，而 UDP 协议并不知道如何组装这些数据包，从而把这些数据包还原成完整的文件。  </li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/" data-id="ckm1thbgt0002s4416lege1yw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-单进程浏览器和多进程浏览器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/" class="article-date">
+  <time datetime="2021-03-09T08:09:39.000Z" itemprop="datePublished">2021-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/">单进程浏览器和多进程浏览器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yarn.run/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/" data-id="ckm1thbh6000es4418tmcbzwb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-InnoDB记录存储结构" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" class="article-date">
@@ -203,7 +305,7 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" data-id="ckm1pzm9w0009pse65pbcfdgz" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" data-id="ckm1thbgv0003s4411usx4d6t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql-InndDB/" rel="tag">Mysql, InndDB</a></li></ul>
@@ -241,7 +343,7 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/" data-id="ckm1pzm9o0004pse6czr7hst9" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2020/09/08/canvas-%E8%A7%92%E5%9D%90%E6%A0%87/" data-id="ckm1thbh00007s441hndyd2ok" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +379,7 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/" data-id="ckm1pzm9v0008pse6a6253ven" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/" data-id="ckm1thbh00008s441armr02np" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +479,7 @@ animate();</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" data-id="ckm1pzma4000gpse62eqx8e8i" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/" data-id="ckm1thbh7000gs4419jbgdnz6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li></ul>
@@ -557,7 +659,7 @@ void g(std::string str);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ckm1pzma7000kpse6dnxrb9q5" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/" data-id="ckm1thbh9000ks441b3ye938b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -620,7 +722,7 @@ void g(std::string str);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ckm1pzma0000cpse688elda7j" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2019/12/17/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6-Skeleton-Screen/" data-id="ckm1thbh4000cs441hd8tbdlr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>
@@ -664,7 +766,7 @@ void g(std::string str);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="ckm1pzm9j0002pse62v6h0dbo" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2019/12/15/Notification-%E6%94%BE%E5%88%B0React-%E4%B8%AD%E5%90%8E%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="ckm1thbgz0006s4412n0nd0be" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" rel="tag">前端组件</a></li></ul>
@@ -708,7 +810,7 @@ void g(std::string str);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ckm1pzm9t0007pse63n83c6js" class="article-share-link">Share</a>
+      <a data-url="https://yarn.run/2019/12/10/firefox%E7%9A%84%E9%94%9A%E7%82%B9%E4%B8%8Echrome%E7%9A%84%E9%94%9A%E7%82%B9%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C/" data-id="ckm1thbh2000bs44174il5aqr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" rel="tag">浏览器兼容</a></li></ul>
@@ -720,196 +822,12 @@ void g(std::string str);
 
 
   
-    <article id="post-CSS-Transition" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/07/CSS-Transition/" class="article-date">
-  <time datetime="2019-12-07T12:11:02.000Z" itemprop="datePublished">2019-12-07</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/07/CSS-Transition/">Css Transition</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://codepen.io/shucha/pen/WNbQXyP" target="_blank" rel="noopener">效果预览</a></p>
-<h2 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener">transition</a>  属性是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-duration" target="_blank" rel="noopener"><code>transition-duration</code></a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-timing-function" target="_blank" rel="noopener"><code>transition-timing-function</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-delay" target="_blank" rel="noopener"><code>transition-delay</code></a> 的一个<a href="https://developer.mozilla.org/en-US/docs/CSS/Shorthand_properties" target="_blank" rel="noopener">简写属性</a>。可以为一个元素在不同状态切换时定义不同的过渡效果。包括不同的伪类之间的切换，像是<code>:hover</code>, <code>:active</code> 。或者通过<code>JavaScript</code>实现的状态变化. 使用transition可以使页面操作更平滑.</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a></p>
-<p>指定哪个或哪些 CSS 属性用于过渡。只有指定的属性才会在过渡中发生动画，其它属性仍如通常那样瞬间变化。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-duration" target="_blank" rel="noopener"><code>transition-duration</code></a></p>
-<p>指定过渡的时长。或者为所有属性指定一个值，或者指定多个值，为每个属性指定不同的时长。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-timing-function" target="_blank" rel="noopener"><code>transition-timing-function</code></a></p>
-<p><img src="https://developer.mozilla.org/files/3434/TF_with_output_gt_than_1.png" alt="img"><br>指定一个函数，定义属性值怎么变化。缓动函数 <em>Timing functions</em> 定义属性如何计算。多数 <a href="https://developer.mozilla.org/en-US/docs/CSS/timing-function" target="_blank" rel="noopener">timing functions</a> 由四点定义一个 bezier 曲线。也可以从 <a href="http://easings.net/" target="_blank" rel="noopener">Easing Functions Cheat Sheet</a> 选择缓动效果。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-delay" target="_blank" rel="noopener"><code>transition-delay</code></a></p>
-<p>指定延迟，即属性开始变化时与过渡开始发生时之间的时长。</p>
-<p>简写语法：</p>
-<pre><code class="css">div {
-    transition: &lt;property&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt;;
-}</code></pre>
-<h2 id="检测Transition是否完成"><a href="#检测Transition是否完成" class="headerlink" title="检测Transition是否完成"></a>检测Transition是否完成</h2><p>当过渡完成时触发一个事件，在符合标准的浏览器下，这个事件是 <code>transitionend</code>, 在 WebKit 下是 <code>webkitTransitionEnd</code>. 详情查看页面底部的兼容性表格。 <code>transitionend 事件提供两个属性</code>:</p>
-<ul>
-<li><p><code>propertyName</code></p>
-<p>字符串，指示已完成过渡的属性。</p>
-</li>
-<li><p><code>elapsedTime</code></p>
-<p>浮点数，指示当触发这个事件时过渡已运行的时间（秒）。这个值不受 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-delay" target="_blank" rel="noopener"><code>transition-delay</code></a> 影响。</p>
-</li>
-</ul>
-<p>照例可以用  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/addEventListener" target="_blank" rel="noopener"><code>element.addEventListener()</code></a> 方法来监听这个事件：</p>
-<pre><code class="js">el.addEventListener(&quot;transitionend&quot;, updateTransition, true);</code></pre>
-<h2 id="当属性值列表长度不一致时"><a href="#当属性值列表长度不一致时" class="headerlink" title="当属性值列表长度不一致时"></a>当属性值列表长度不一致时</h2><p>以 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a> 的值列表长度为标准，如果某个属性值列表长度短于它的，则重复其值以长度一致， 例如:</p>
-<pre><code class="css">div {
-    transition-property: opacity, left, top, height;
-    transition-duration: 3s, 5s;
-}</code></pre>
-<p>将按下面这样处理</p>
-<pre><code class="css">div {
-    tarnsition-property: opacity, left, top. height;
-    transition-duration: 3s, 5s, 3s, 5s;
-}</code></pre>
-<p>类似地，如果某个属性的值列表长于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition-property" target="_blank" rel="noopener"><code>transition-property</code></a> 的，将被截短。 例如:</p>
-<pre><code class="css">div {
-  transition-property: opacity, left;
-  transition-duration: 3s, 5s, 2s, 1s;
-}</code></pre>
-<p>将按下面这样处理:</p>
-<pre><code class="css">div {
-  transition-property: opacity, left;
-  transition-duration: 3s, 5s;
-}</code></pre>
-<p>###</p>
-<h2 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h2><p><code>translate()</code> 变换函数通过 <code>x</code> 向量和 <code>y</code> 向量移动元素 (i.e. <code>xnew = xold + , ynew = yold +</code>). 如果 <code>y</code> 向量没有被提供，那么默认为 <code>0</code> </p>
-<p><code>scale()</code> 变换函数通过 <code>x</code> 和 <code>y</code>指定一个 <strong>等比例放大缩小</strong> 操作。如果 <code>y</code> 没有被提供，那么假定为等同于 <code>x</code></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener">Transition 参考文档</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/transform" target="_blank" rel="noopener">Tranform 参考文档</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/07/CSS-Transition/" data-id="ckm1pzma1000dpse676rkcd2z" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transition/" rel="tag">transition</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-实现图片拖拽上传" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" class="article-date">
-  <time datetime="2019-12-06T09:10:24.000Z" itemprop="datePublished">2019-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/">实现图片拖拽上传</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://codepen.io/shucha/pen/BayNEVN" target="_blank" rel="noopener">效果预览</a></p>
-<h3 id="拖拽相关的事件"><a href="#拖拽相关的事件" class="headerlink" title="拖拽相关的事件"></a>拖拽相关的事件</h3><table>
-<thead>
-<tr>
-<th align="left">Event</th>
-<th align="left">On Event Handler</th>
-<th align="left">Fires when…</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>drag</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondrag" target="_blank" rel="noopener"><code>ondrag</code></a></td>
-<td align="left">当拖动元素或选中的文本时触发。</td>
-</tr>
-<tr>
-<td align="left"><code>dragend</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragend" target="_blank" rel="noopener"><code>ondragend</code></a></td>
-<td align="left">当拖拽操作结束时触发 (比如松开鼠标按键或敲“Esc”键)。</td>
-</tr>
-<tr>
-<td align="left"><code>dragenter</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragenter" target="_blank" rel="noopener"><code>ondragenter</code></a></td>
-<td align="left">当拖动元素或选中的文本到一个可释放目标时触发。</td>
-</tr>
-<tr>
-<td align="left"><code>dragexit</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragexit" target="_blank" rel="noopener"><code>ondragexit</code></a></td>
-<td align="left">当元素变得不再是拖动操作的选中目标时触发。</td>
-</tr>
-<tr>
-<td align="left"><code>dragleave</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragleave" target="_blank" rel="noopener"><code>ondragleave</code></a></td>
-<td align="left">当拖动元素或选中的文本离开一个可释放目标时触发。</td>
-</tr>
-<tr>
-<td align="left"><code>dragover</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragover" target="_blank" rel="noopener"><code>ondragover</code></a></td>
-<td align="left">当元素或选中的文本被拖到一个可释放目标上时触发（每100毫秒触发一次）。</td>
-</tr>
-<tr>
-<td align="left"><code>dragstart</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondragstart" target="_blank" rel="noopener"><code>ondragstart</code></a></td>
-<td align="left">当用户开始拖动一个元素或选中的文本时触发。</td>
-</tr>
-<tr>
-<td align="left"><code>drop</code></td>
-<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/ondrop" target="_blank" rel="noopener"><code>ondrop</code></a></td>
-<td align="left">当元素或选中的文本在可释放目标上被释放时触发。</td>
-</tr>
-</tbody></table>
-<p><em>1: 当从操作系统向浏览器中拖动文件时，不会触发 <code>dragstart</code> 和<code>dragend</code> 事件。</em></p>
-<p><em>2: 使用 <code>e.target.files</code> 来获取普通上传的文件，使用 <code>e.dataTransfer.files</code>获取拖拽上传的文件。</em></p>
-<p><em>3: Event对象的preventDefault() 方法用来阻止事件的默认操作，例如当我们将文件拖拽到浏览器窗口中时，浏览器默认会在当前页打开这个文件。可以调用event.preventDefault();阻止它。还有<code>&lt;button type=&quot;submit&quot; /&gt;</code> 等。</em></p>
-<h3 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h3><p><code>FileReader</code> 对象运行js异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 <code>File</code>或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener"><code>Blob</code></a> 对象指定要读取的文件或数据。</p>
-<p>其中<code>File</code>对象可以是来自用户在一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input" target="_blank" rel="noopener"><code>Input</code></a>元素上选择文件后返回的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileList" target="_blank" rel="noopener"><code>FileList</code></a>对象,也可以来自拖放操作生成的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DataTransfer" target="_blank" rel="noopener"><code>DataTransfer</code></a>对象,还可以是来自在一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement" target="_blank" rel="noopener"><code>HTMLCanvasElement</code></a>上执行<code>mozGetAsFile()</code>方法后返回结果。</p>
-<p>####事件处理</p>
-<p><code>FileReader.onabort</code> 文件读取被中断.</p>
-<p><code>FileReader.onerror</code> 文件读取错误</p>
-<p><code>FileReader.onload</code> 文件读取完成</p>
-<p><code>FileReader.onloadstart</code> 开始读取</p>
-<p><code>FileReader.onloadend</code> 读取结束</p>
-<p><code>Filereader.onprogress</code> 读取<code>Bold</code>对象时触发, 可以用来做进度条</p>
-<p><em><code>File</code>继承自<code>Bold</code>, 因为 <code>FileReader</code> 继承自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget" target="_blank" rel="noopener"><code>EventTarget</code></a>，所以所有这些事件也可以通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener"><code>addEventListener</code></a>方法使用。</em></p>
-<p>###本文参考文档: <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" rel="noopener">MDN web docs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yarn.run/2019/12/06/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8B%96%E6%8B%BD%E4%B8%8A%E4%BC%A0/" data-id="ckm1pzma5000ipse6hn0sau0d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%8B%96%E6%8B%BD/" rel="tag">文件拖拽</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -941,7 +859,7 @@ void g(std::string str);
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li></ul>
     </div>
   </div>
 
@@ -954,6 +872,14 @@ void g(std::string str);
       <ul>
         
           <li>
+            <a href="/2021/03/09/TCP-IP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84/">TCP/IP 协议是如何在浏览器工作的</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/09/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8/">单进程浏览器和多进程浏览器</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/18/InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">InnoDB记录存储结构</a>
           </li>
         
@@ -963,14 +889,6 @@ void g(std::string str);
         
           <li>
             <a href="/2020/09/08/canvas%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89/">canvas编程中的向量定义</a>
-          </li>
-        
-          <li>
-            <a href="/2020/01/10/%E5%AE%83%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF-Canvas-Particle/">它的名字是: Canvas Particle</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/18/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81/">转载 如何写出无法维护的代码</a>
           </li>
         
       </ul>
